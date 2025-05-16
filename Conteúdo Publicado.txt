@@ -1,0 +1,6 @@
+Este repositório possui:
+Script DDL Base de Dados MySQL das tabelas 8880, 8881, 8882 e 8883 usando apenas os campos Indice, Atividades, UF, MesAno_Codigo e MesAno para simplificar.
+Script DML em Python para consultar as tabelas 8880, 8881, 8882 e 8883 do SIDRA por API, dando insert na base MySQL do resultado da consulta sem duplicar os dados.
+README.md de exemplo com base nos processos e recursos utilizados.
+Print com a comandos de criação e consulta do MySQL.
+Print de um gráfico no Power BI como resultado da consulta direto na base MySQL.
