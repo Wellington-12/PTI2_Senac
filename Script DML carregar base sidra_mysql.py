@@ -1,13 +1,23 @@
 import requests
 import mysql.connector
 
-# Configurações de conexão com o banco
-conn = mysql.connector.connect(
-    host="192.168.0.192",
-    user="destino",
-    password="098Daiane.",
-    database="sidra"
-)
+# Função para conectar ao MySQL
+def conectar_mysql():
+    try:
+        conn = mysql.connector.connect(
+            host="127.0.0.1",
+            user="root",
+            password="G@mes8090",
+            database="sidra"
+        )
+        print("✅ Conectado ao MySQL com sucesso.")
+        return conn
+    except mysql.connector.Error as err:
+        print(f"Erro ao conectar ao MySQL: {err}")
+        exit(1)
+
+# Inicia conexão
+conn = conectar_mysql()
 cursor = conn.cursor()
 
 # Lista de consultas SIDRA e tabelas MySQL correspondentes
@@ -70,7 +80,7 @@ consultas = [
 
 # Processa todas as consultas
 for consulta in consultas:
-    print(f"Consultando {consulta['tabela']}...")
+    print(f"\n📦 Consultando {consulta['tabela']}...")
     try:
         resp = requests.get(consulta["url"])
         data = resp.json()
@@ -84,13 +94,15 @@ for consulta in consultas:
                 cursor.execute(consulta["sql"], valores)
                 inseridos += cursor.rowcount
             except Exception as e:
-                print(f"Erro ao processar registro: {e}")
+                print(f"⚠️ Erro ao processar registro: {e}")
                 continue
 
-        print(f"{consulta['tabela']}: {inseridos} inseridos, {nulos} valores NULL.")
+        print(f"✅ {consulta['tabela']}: {inseridos} inseridos, {nulos} valores NULL.")
     except Exception as e:
-        print(f"Erro ao consultar {consulta['url']}: {e}")
+        print(f"❌ Erro ao consultar {consulta['url']}: {e}")
 
+# Finaliza conexão
 conn.commit()
 cursor.close()
 conn.close()
+print("\n🔌 Conexão finalizada.")
