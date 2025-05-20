@@ -4,4 +4,4 @@ Script DML em Python para consultar as tabelas 8880, 8881, 8882 e 8883 do SIDRA 
 README.md com base nos processos e recursos utilizados.
 Print com a comandos de criação e consulta do MySQL.
 Print de um gráfico no Power BI como resultado da consulta direto na base MySQL.
-Arquivo "Sidra_20250517.rar", que é o backup da base MySQL ja atualizada com o SIDRA (Para simplificar, gerei um backup da minha base mysql atualizada,,, você pode importar pelo Workbench e ter os dados para trabalhar no Power BI)
+Arquivo "Sidra_20250517.rar", que é o backup da base MySQL ja atualizada com o SIDRA (Para simplificar, gerei um backup da minha base mysql atualizada, você pode importar pelo Workbench e ter os dados para trabalhar no Power BI)
